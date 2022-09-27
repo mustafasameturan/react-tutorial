@@ -35,6 +35,12 @@ function HomeLayout(){
                 })}>
                     Contact
                 </NavLink>
+                &nbsp;&nbsp;
+                <NavLink to={url('home.todoApp')} style={( {isActive} ) => ({
+                    backgroundColor : isActive ? 'yellow': 'transparent'
+                })}>
+                    Todo App
+                </NavLink>
             </nav>
             <Outlet />
         </>

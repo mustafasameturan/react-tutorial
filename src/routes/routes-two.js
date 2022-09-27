@@ -15,6 +15,7 @@ import Api from "../pages/api/Api";
 import ApiLayout from "../pages/api";
 import UserList from "../pages/api/UserList"
 import PostList from "../pages/api/PostList"
+import TodoApp from "../pages/todoApp/TodoApp";
 
 const routes = [
     {
@@ -87,6 +88,11 @@ const routes = [
                 path: 'profile',
                 auth: true,
                 element:<Profile />
+            },
+            {
+                name: 'todoApp',
+                path: 'todoApp',
+                element: <TodoApp />
             }
         ]
     },
