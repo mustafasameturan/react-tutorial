@@ -1,12 +1,16 @@
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Categories(){
     return(
         <>
+            <Helmet>
+                <title>Categories</title>
+            </Helmet>
             <h3>Blog Kategorileri</h3>
             <ul>
                 <li>
-                    <Link to="#">Yazılım</Link>
+                    <Link to="#">Software</Link>
                 </li>
                 <li>
                     <Link to="#">React</Link>

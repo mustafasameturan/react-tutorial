@@ -1,5 +1,6 @@
 import { useAuth } from "../../context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Login(){
 
@@ -20,6 +21,9 @@ function Login(){
 
     return(
         <div>
+            <Helmet>
+                <title>Login</title>
+            </Helmet>
             <h1>Login Page</h1>
             <button onClick={loginHandle}>Login</button>
         </div>

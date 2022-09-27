@@ -1,4 +1,5 @@
 import { useEffect, useState} from "react";
+import { Helmet } from "react-helmet";
 import { PostService } from "../../services"
 
 function PostList(){
@@ -10,24 +11,30 @@ function PostList(){
     }, [])
 
     return(
-        <table>
-            <thead>
-                <tr>
-                    <th>Id</th>
-                    <th>Title</th>
-                    <th>Body</th>
-                </tr>
-            </thead>
-            {posts && posts.map(post => (
-                <tbody key={post.id}>
+        <>
+            <Helmet>
+                <title>Post List</title>
+            </Helmet>
+            <table>
+                <thead>
                     <tr>
-                        <td>{post.id}</td>
-                        <td>{post.title}</td>
-                        <td>{post.body}</td>
+                        <th>Id</th>
+                        <th>Title</th>
+                        <th>Body</th>
                     </tr>
-                </tbody>
-            ))}
-        </table>
+                </thead>
+                {posts && posts.map(post => (
+                    <tbody key={post.id}>
+                        <tr>
+                            <td>{post.id}</td>
+                            <td>{post.title}</td>
+                            <td>{post.body}</td>
+                        </tr>
+                    </tbody>
+                ))}
+            </table>
+        </>
+
     )
 
 }

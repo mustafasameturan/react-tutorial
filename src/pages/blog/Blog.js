@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 import { url } from "../../routes/utils";
 
@@ -6,7 +7,7 @@ function Blog(){
     const blogposts = [
         {
             id: 1,
-            title: 'Yazılım Blogpost',
+            title: 'Software Blogpost',
             url: 'blogpost-1'
         },
         {
@@ -29,6 +30,9 @@ function Blog(){
 
     return(
         <>
+            <Helmet>
+                <title>Blog</title>
+            </Helmet>
             <ul>
                 <li>
                     <Link to={url('home.blog.categories')}>Categories</Link>
