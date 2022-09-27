@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { UserService } from "../services"
+import { UserService } from "../../services"
 
 function UserList(){
 

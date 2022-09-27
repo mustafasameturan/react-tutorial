@@ -1,5 +1,5 @@
 import { useEffect, useState} from "react";
-import { PostService } from "../services"
+import { PostService } from "../../services"
 
 function PostList(){
     const [posts, setPosts] = useState(false)
