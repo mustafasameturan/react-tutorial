@@ -15,6 +15,7 @@ function EditTodo({data , close}){
             title: todo,
             done
         }))
+        close()
     }
 
     return (
