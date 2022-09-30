@@ -1,48 +1,20 @@
-import { NavLink, Outlet } from "react-router-dom";
-import { url } from "../../routes/utils";
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Header from "../constants/Header";
+import Footer from "../constants/Footer";
+import Navbar from "./Navbar";
 
 function HomeLayout(){
+
+    const [theme, setTheme] = useState('Dark')
+    const [language, setLanguage] = useState('TR')
+
     return(
         <>
-            <nav>
-                <NavLink to={url('home')}>
-                    Home Page
-                </NavLink>
-                &nbsp;&nbsp;
-                <NavLink to={url('home.blog')}>
-                    {({ isActive }) => (
-                        <>
-                        Blog
-                        {isActive && '(Active)'}
-                        </>
-                    )}
-                </NavLink>
-                &nbsp;&nbsp;
-                <NavLink to={url('home.profile')} style={( {isActive} ) => ({
-                    backgroundColor : isActive ? 'red': 'transparent'
-                })}>
-                    Profile
-                </NavLink>
-                &nbsp;&nbsp;
-                <NavLink to={url('home.api')} style={( {isActive} ) => ({
-                    backgroundColor : isActive ? 'yellow': 'transparent'
-                })}>
-                    API
-                </NavLink>
-                &nbsp;&nbsp;
-                <NavLink to={url('home.contact')} style={( {isActive} ) => ({
-                    backgroundColor : isActive ? 'yellow': 'transparent'
-                })}>
-                    Contact
-                </NavLink>
-                &nbsp;&nbsp;
-                <NavLink to={url('home.todoApp')} style={( {isActive} ) => ({
-                    backgroundColor : isActive ? 'yellow': 'transparent'
-                })}>
-                    Todo App
-                </NavLink>
-            </nav>
+            <Header theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage} />
+            <Navbar/>
             <Outlet />
+            <Footer theme={theme} setTheme={setTheme} language={language} setLanguage={setLanguage}/>
         </>
     )
 }

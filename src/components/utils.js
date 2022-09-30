@@ -1,6 +1,8 @@
 import store from '../stores';
 import { login, logout } from '../stores/auth';
+import { setLanguage } from '../stores/language';
 import { openModal, closeModal } from '../stores/modal';
+import { setTheme } from '../stores/theme';
 import { addTodo, deleteTodo } from '../stores/todo'
 
 export const addTodoHandle = todo => {
@@ -29,4 +31,13 @@ export const modalOpen = (name, data = false) => {
 export const modalClose = () => {
     store.dispatch(closeModal())
 }
+
+export const changeLanguage = () => {
+    store.dispatch(setLanguage())
+}
+
+export const changeTheme = () => {
+    store.dispatch(setTheme())
+}
+
 
