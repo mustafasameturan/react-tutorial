@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { Helmet } from "react-helmet";
+import { useSelector } from "react-redux";
 import AddTodo from "../../todo/add.js";
 import Header from "../../todo/header";
 import TodoList from "../../todo/list"
@@ -6,19 +7,25 @@ import Modal from "../../todo/modal.js";
 
 function TodoApp(){
 
-    const [user, setUser] = useState(false)
-    const [todos, setTodos] = useState([])
-    const [modal, setModal] = useState(false)
+    //const [user, setUser] = useState(false)
+    //const [todos, setTodos] = useState([])
+    //const [modal, setModal] = useState(false)
+    //const [language, setLanguage] = useState('tr')
+    //const [dark, setDark] = useState('tr')
 
-    const close = () => setModal(false)
+    //const close = () => setModal(false)
+    const { open } = useSelector(state => state.modal)
 
     return (
         <>
-        {modal && <Modal name={modal.name} data={modal.data} close={close} />}
-            <Header user={user} setUser={setUser}/>
+        <Helmet>
+            <title>Todo App</title>
+        </Helmet>
+        {open && <Modal />}
+            <Header />
             <hr/>
-            <AddTodo setTodos={setTodos} user={user}/>
-            <TodoList setModal={setModal} todos={todos} setTodos={setTodos} user={user} />
+            <AddTodo />
+            <TodoList />
         </>
     )
 }

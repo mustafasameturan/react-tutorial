@@ -1,11 +1,12 @@
-function Header({user, setUser}){
+import { useSelector } from "react-redux"
+import { loginHandle, logoutHandle } from "../components/utils"
 
-    const loginHandle = user =>{
-        setUser(user)
-    }
+function Header(){
 
-    const logoutHandle = () =>{
-        setUser(false)
+    const { user } = useSelector(state => state.auth)
+
+    const login = user =>{
+        loginHandle(user)
     }
 
     return(
@@ -13,8 +14,8 @@ function Header({user, setUser}){
             <h2>TodoApp</h2>
             {!user && (
                 <nav>
-                    <button onClick={() => loginHandle({id: 1, username: 'mystic'})}>login with mystic</button>&nbsp;&nbsp;
-                    <button onClick={() => loginHandle({id: 2, username: 'mustafasamet'})}>login with mustafasamet</button>
+                    <button onClick={() => login({id: 1, username: 'mystic'})}>login with mystic</button>&nbsp;&nbsp;
+                    <button onClick={() => login({id: 2, username: 'mustafasamet'})}>login with mustafasamet</button>
                 </nav>
             )}
             {user && (

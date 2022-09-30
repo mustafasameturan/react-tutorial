@@ -1,17 +1,21 @@
 import { nanoid } from "nanoid"
-import { useState } from "react";;
+import { useState } from "react";
+import { useSelector } from "react-redux";
+import { addTodoHandle } from "../components/utils"
 
-function AddTodo({setTodos, user}){
+function AddTodo(){
 
     const [todo, setTodo] = useState('')
+    const { user } = useSelector(state => state.auth)
+
     const submitHandle = e => {
         e.preventDefault()
-        setTodos(todos => [{
+        addTodoHandle({
             title: todo,
             done: false,
             id: nanoid(),
             user: user.id
-        }, ...todos])
+        })
         setTodo('')
     }
 
