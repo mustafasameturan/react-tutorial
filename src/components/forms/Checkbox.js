@@ -1,4 +1,4 @@
-import { useField } from "formik"
+import { useField, ErrorMessage } from "formik"
 
 function Checkbox({ label, ...props}){
 
@@ -9,15 +9,18 @@ function Checkbox({ label, ...props}){
     }
 
     return(
-        <label>
-            <input
-                type="checkbox"
-                onClick={check}
-             />
-                {/* <FiCheck size={16} />
-            </input> */}
-            {label}
-        </label>
+        <>
+            <label>
+                <input
+                    type="checkbox"
+                    onClick={check}
+                />
+                    {/* <FiCheck size={16} />
+                </input> */}
+                {label}
+            </label>
+            <ErrorMessage name={field.name} component="small" className="validation" />
+        </>
     )
 }
 

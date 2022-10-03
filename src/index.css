@@ -28,3 +28,12 @@ code {
   background: #fff;
   padding: 15px;
 }
+
+.validation{
+  font-size: 12px;
+  line-height: 8px;
+  display: block;
+  margin-top: 4px;
+  --tw-text-opacity: 1;
+  color: red;
+}

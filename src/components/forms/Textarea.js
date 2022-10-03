@@ -1,4 +1,4 @@
-import { useField } from "formik";
+import { useField, ErrorMessage } from "formik";
 
 function Textarea({ label, ...props }){
 
@@ -10,6 +10,7 @@ function Textarea({ label, ...props }){
             <textarea rows="2" cols="21" 
                 {...field} {...props}
             />
+            <ErrorMessage name={field.name} component="small" className="validation" />
         </label>
     )
 }

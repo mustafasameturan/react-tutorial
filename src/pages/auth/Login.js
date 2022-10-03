@@ -2,6 +2,9 @@ import { useAuth } from "../../context/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet";
 import { Formik, Form, Field } from "formik";
+import Input from "../../components/forms/Input";
+import Password from "../../components/forms/Password";
+import { LoginSchema } from "../../validations";
 
 function Login(){
 
@@ -18,7 +21,7 @@ function Login(){
 
             {/* Formik Field Sample */}
             <Formik initialValues={{
-                username : '',
+                email : '',
                 password: ''
             }}
             onSubmit= {values => {
@@ -27,14 +30,12 @@ function Login(){
                     replace: true
                 })
             }}
+                validationSchema={LoginSchema}
             >
                 {(props) => (
                     <Form>
-                        <label htmlFor="">Username</label><br />
-                        <Field name="username" /><br />
-
-                        <label htmlFor="">Password</label><br />
-                        <Field name="password" type="password" /><br />
+                        <Input name="email" label="E-Mail"/><br />
+                        <Password name="password" label="Password" /><br />
                         <button type="submit">Giriş Yap</button>
                      </Form>
                 )}          
